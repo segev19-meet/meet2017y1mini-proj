@@ -1,3 +1,4 @@
+
 import turtle
 import random #We'll need this later in the lab
 turtle.tracer(1,0) #This helps the turtle move more smoothly
@@ -7,7 +8,10 @@ turtle.setup(SIZE_X, SIZE_Y) #Curious? It's the turtle window
 #size.
 turtle.penup()
 SQUARE_SIZE = 20
-START_LENGTH = 8
+
+
+
+START_LENGTH = 2
 #Initialize lists
 pos_list = []
 stamp_list = []
@@ -15,9 +19,10 @@ food_pos = []
 food_stamps = []
 #Set up positions (x,y) of boxes that make up the snake
 snake = turtle.clone()
-snake.shape("square")
+snake.shape("circle")
 #Hide the turtle object (it's an arrow - we don't need to see it)
 turtle.hideturtle()
+
 
 
 for i in range(START_LENGTH):
@@ -107,17 +112,11 @@ def make_food():
     food_pos.append(new_list)
     new_stamp=food.stamp()
     food_stamps.append(new_stamp)
-    
-    
-
 
 
 
     
-
-
-
-
+    
 def move_snake():
     my_pos=snake.pos()
     x_pos=my_pos[0]
@@ -172,14 +171,16 @@ def move_snake():
         food_stamps.pop(food_ind)
         print("you have eaten the food!")
         make_food()
-    old_stamp=stamp_list.pop(0)
-    snake.clearstamp(old_stamp)
-    pos_list.pop(0)
-
+    else:
+        old_stamp=stamp_list.pop(0)
+        snake.clearstamp(old_stamp)
+        pos_list.pop(0)
     
 
-
-
+    
+    if snake.pos() in pos_list[0:-1]:
+        print("Gmem over!")
+        quit()
 
 
 
@@ -200,6 +201,9 @@ for this_food_pos in food_pos:
     food.goto(this_food_pos[0],this_food_pos[1])
     stamp_id = food.stamp()
     food_stamps.append(stamp_id)
+    
+
+
 
 
         
