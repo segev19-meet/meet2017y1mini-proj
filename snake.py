@@ -2,12 +2,16 @@
 import turtle
 import random #We'll need this later in the lab
 turtle.tracer(1,0) #This helps the turtle move more smoothly
-SIZE_X=800
-SIZE_Y=500
+SIZE_X=900
+SIZE_Y=600
+
+
 turtle.setup(SIZE_X, SIZE_Y) #Curious? It's the turtle window
 #size.
 turtle.penup()
 SQUARE_SIZE = 20
+
+
 
 
 
@@ -16,9 +20,11 @@ START_LENGTH = 2
 pos_list = []
 stamp_list = []
 food_pos = []
-food_stamps = []
+food_stamps = [
+    ]
 #Set up positions (x,y) of boxes that make up the snake
 snake = turtle.clone()
+snake.color("green")
 snake.shape("circle")
 #Hide the turtle object (it's an arrow - we don't need to see it)
 turtle.hideturtle()
@@ -100,10 +106,10 @@ turtle.listen()
 
 
 def make_food():
-    min_x=-int(SIZE_X/2/SQUARE_SIZE)+1
-    max_x=int(SIZE_X/2/SQUARE_SIZE)-1
-    min_y=-int(SIZE_Y/2/SQUARE_SIZE)-1
-    max_y=int(SIZE_Y/2/SQUARE_SIZE)+1
+    min_x=-int(800/2/SQUARE_SIZE)+1
+    max_x=int(800/2/SQUARE_SIZE)-1
+    min_y=-int(500/2/SQUARE_SIZE)-1
+    max_y=int(500/2/SQUARE_SIZE)+1
 
     food_x=random.randint(min_x, max_x)*SQUARE_SIZE
     food_y=random.randint(min_y, max_y)*SQUARE_SIZE
@@ -189,9 +195,9 @@ def move_snake():
 move_snake()
 
 
-turtle.register_shape("trash.gif")
+turtle.register_shape("trumpy.gif")
 food=turtle.clone()
-food.shape("trash.gif")
+food.shape("trumpy.gif")
 
 
 
