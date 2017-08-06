@@ -20,8 +20,7 @@ START_LENGTH = 2
 pos_list = []
 stamp_list = []
 food_pos = []
-food_stamps = [
-    ]
+food_stamps = []
 #Set up positions (x,y) of boxes that make up the snake
 snake = turtle.clone()
 snake.color("green")
